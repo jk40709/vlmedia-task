@@ -1,0 +1,49 @@
+.tooltip-container {
+    position: relative;
+
+    .has-tooltip {
+        text-decoration: underline;
+        text-decoration-style: dashed;
+        text-decoration-color: color(primary);
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+
+            + .tooltip {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    .tooltip {
+        position: absolute;
+        top: -2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: inline-block;
+        @include size(14);
+        @include color(wh);
+        white-space: nowrap;
+        @include bg_color(tooltip_bg);
+        padding: .25rem 1rem;
+        border-radius: 4px;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .3s ease-in, visibility .3s ease-in;
+
+        &::before {
+            content: '';
+            display: block;
+            @include wh(0, 0);
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid color(tooltip_bg);
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}

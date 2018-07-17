@@ -1,0 +1,111 @@
+/* ---------------------------------
+  Variables
+---------------------------------- */
+
+$default_font_size: 16;
+
+
+/* ---------------------------------
+  Maps
+---------------------------------- */
+
+$font_weights: (
+  light: 300,
+  regular: 400,
+  medium: 600,
+  bold: 700
+);
+
+
+/* ---------------------------------
+  Funkce
+---------------------------------- */
+
+@function size($key) {
+  @if map-has-key($font-sizes, $key) {
+    @return map-get($font-sizes, $key);
+  }
+
+  @warn '`#{$key}` neni v $font-sizes.';
+  @return null;
+}
+
+@function weight($key) {
+  @if map-has-key($font_weights, $key) {
+    @return map-get($font_weights, $key);
+  }
+
+  @warn '`#{$key}` neni v $font_weights.';
+  @return null;
+}
+
+
+/* ---------------------------------
+  Mixiny
+---------------------------------- */
+
+@mixin size($value) {
+  font-size: #{$value}px;
+  font-size: #{$value / $default_font_size}rem;
+}
+
+@mixin weight($value) {
+  font-weight: weight(#{$value});
+}
+
+
+/* ---------------------------------
+  Placeholders
+---------------------------------- */
+
+
+
+/* ---------------------------------
+  Styles
+---------------------------------- */
+
+p {
+  line-height: 1.5;
+}
+
+h1 {
+  @include weight(bold);
+  @include size(32);
+  margin: 0;
+  line-height: 1.25;
+
+  @media (min-width: 48em) {
+    @include size(38)
+  }
+
+  @media (min-width: 75em) {
+    @include size(42);
+  }
+
+  @media (min-width: 90em) {
+    @include size(48);
+  }
+}
+
+h2 {
+  @include weight(bold);
+  @include size(24);
+  margin: 2rem 0 0;
+  line-height: 1.25;
+
+  @media (min-width: 48em) {
+    @include size(28)
+  }
+
+  @media (min-width: 75em) {
+    @include size(32);
+  }
+
+  @media (min-width: 90em) {
+    @include size(36);
+  }
+}
+
+.heading_regular {
+  @include weight(regular);
+}

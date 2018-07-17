@@ -1,0 +1,73 @@
+// Sirka, vyska
+@mixin wh ($width, $height, $units: px) {
+  width: $width#{$units};
+  height: $height#{$units};
+}
+
+// Logo text na img
+@mixin logo($width, $height, $style: default) {
+  @include hide-text;
+  width: #{$width}px;
+  height: #{$height}px;
+  background-image: url('#{$img_path}/logo-#{$style}.png');
+  background-image: url('#{$img_path}/logo-#{$style}.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  @media (min-resolution: 192dpi) {
+    background-image: url('#{$img_path}/logo-#{$style}@2x.png');
+    background-image: url('#{$img_path}/logo-#{$style}.svg');
+  }
+}
+
+@mixin slide_bg ($slide_number) {
+  background-image: linear-gradient(to bottom, color(slide_overlay), color(slide_overlay)),
+                    url('#{$img_path}/slide_#{$slide_number}-bg-sm.jpg');
+
+  @media (min-resolution: 192dpi) {
+      background-image: linear-gradient(to bottom, color(slide_overlay), color(slide_overlay)),
+                    url('#{$img_path}/slide_#{$slide_number}-bg-sm@2x.jpg');
+  }
+
+  @media (min-width: 25em) {
+      background-image: linear-gradient(to bottom, color(slide_overlay), color(slide_overlay)),
+                    url('#{$img_path}/slide_#{$slide_number}-bg-md.jpg');
+
+      @media (min-resolution: 192dpi) {
+          background-image: linear-gradient(to bottom, color(slide_overlay), color(slide_overlay)),
+                      url('#{$img_path}/slide_#{$slide_number}-bg-md@2x.jpg');
+      }
+  }
+
+  @media (min-width: 50em) {
+      background-image: linear-gradient(to bottom, color(slide_overlay), color(slide_overlay)),
+                    url('#{$img_path}/slide_#{$slide_number}-bg-lg.jpg');
+
+      @media (min-resolution: 192dpi) {
+          background-image: linear-gradient(to bottom, color(slide_overlay), color(slide_overlay)),
+                      url('#{$img_path}/slide_#{$slide_number}-bg-lg@2x.jpg');
+      }
+  }
+
+  @media (min-width: 1005em) {
+      background-image: linear-gradient(to bottom, color(slide_overlay), color(slide_overlay)),
+                    url('#{$img_path}/slide_#{$slide_number}-bg-xl.jpg');
+  }
+}
+
+@mixin icon ($icon_name, $width, $height) {
+  display: block;
+  width: #{$width}px;
+  height: #{$height}px;
+  background-image: url('#{$img_path}/icon_#{$icon_name}.png');
+  background-image: url('#{$img_path}/icon_#{$icon_name}.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  @media (min-resolution: 192dpi) {
+      background-image: url('#{$img_path}/icon_#{$icon_name}@2x.png');
+  background-image: url('#{$img_path}/icon_#{$icon_name}.svg');
+  }
+}

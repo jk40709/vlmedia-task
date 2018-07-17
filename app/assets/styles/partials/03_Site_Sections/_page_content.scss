@@ -1,0 +1,13 @@
+.page-content {
+
+    .page-content__inner {
+        @include container;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+
+        @media (min-width: 75em) {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+    }
+}

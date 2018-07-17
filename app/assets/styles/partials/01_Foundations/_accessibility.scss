@@ -1,0 +1,67 @@
+/* ---------------------------------
+  Mixiny
+---------------------------------- */
+
+// Screen reader text
+@mixin sr-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+// Skryt text vizualne
+@mixin hide-text {
+  display: block;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+/* ---------------------------------
+  Placeholdery
+---------------------------------- */
+
+// Screen Reader Text
+%sr-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+/* ---------------------------------
+  Styly
+---------------------------------- */
+
+.sr-text {
+  @extend %sr-text;
+}
+
+#skip-to-content {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+  &:active,
+  &:focus,
+  &:hover {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    width: auto;
+    height: auto;
+    @include bg-color(primary);
+    text-decoration: none;
+    @include color(wh);
+    border: 2px solid color(wh);
+    font-size: 14px;
+    padding: 1rem 1.5rem;
+    overflow: visible;
+  }
+}

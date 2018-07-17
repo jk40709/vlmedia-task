@@ -1,0 +1,43 @@
+// Clearfix
+@mixin clearfix {
+  zoom: 1;
+
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+
+// Container
+$container_max_width: 960px;
+$container_padding: 2rem;
+
+@mixin container ($max-width: $container_max_width, $padding: $container_padding) {
+  margin: 0 auto;
+  max-width: $max-width;
+  padding-left: $container_padding;
+  padding-right: $container_padding;
+  position: relative;
+}
+
+.container {
+  @include container;
+}
+
+#wrapper {
+  min-height: calc(100vh - 100px);
+
+  @media (min-width: 64em) {
+    min-height: calc(100vh - 141px);
+  }
+}
+
+.block {
+  display: block;
+}

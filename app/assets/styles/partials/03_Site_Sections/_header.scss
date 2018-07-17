@@ -1,0 +1,74 @@
+.site-header {
+    padding: 1rem 0;
+    @include bg_color(wh);
+    position: relative;
+    z-index: 3;
+
+    @media (min-width: 64em) {
+        padding: 1.5rem 0;
+    }
+
+    @media (min-width: 75em) {
+        padding: 2rem 0;
+    }
+
+    > .site-header__inner {
+        @include container(1300px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        
+        .logo-container {
+
+            .site-logo {
+                margin: 0;
+                line-height: 1;
+                @include weight(bold);
+                @include size(20);
+                text-transform: uppercase;
+
+                @media (min-width: 48em) {
+                    @include size(24)
+                }
+
+                @media (min-width: 64em) {
+                    @include size(28)
+                }
+
+                @media (min-width: 75em) {
+                    @include size(32)
+                }
+                
+                > a {
+                    @include color(text);
+                    transition: color .3s ease;
+
+                    &:hover {
+                        @include color(primary);
+                        text-decoration: none;
+                    }
+
+                    .no-js & {
+                        
+                        @media (max-width: 735px) {
+                            margin: 0 auto;
+                        }
+                    }
+                }
+            }
+        }
+
+        .nav-container {
+
+        }
+
+        .no-js & {
+            
+            @media (max-width: 736px) {
+                display: block;
+            }
+        }
+    }
+}

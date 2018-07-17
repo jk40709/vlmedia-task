@@ -1,0 +1,37 @@
+/* ---------------------------------
+  Variables
+---------------------------------- */
+$font_path: "../fonts";
+$poppins: 'Poppins', sans-serif; // 300, 400, 600, 700
+
+
+/* ---------------------------------
+  Funkce
+---------------------------------- */
+
+@function font($key) {
+  @if map-has-key($font-families, $key) {
+    @return map-get($font-families, $key);
+  }
+
+  @warn '`#{$key}` neni v $font-families.';
+  @return null;
+}
+
+
+/* ---------------------------------
+  Maps
+---------------------------------- */
+
+$font-families: (
+  default: $poppins
+);
+
+
+/* ---------------------------------
+  Mixiny
+---------------------------------- */
+
+@mixin family($value) {
+  font-family: font(#{$value});
+}

@@ -1,0 +1,178 @@
+.site-nav {
+
+    #toggle-nav {
+
+        @media (min-width: 46em) {
+            display: none;
+        }
+
+        .no-js & {
+            display: none;
+        }
+    }
+    
+    > ul {
+        @include no-list;
+
+        @media (max-width: 735px) {
+            position: fixed;
+            top: 57px;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 57px);
+            @include bg_color(body);
+            padding: 2rem;
+            transform: translateX(100%);
+            visibility: hidden;
+            transition: .3s ease-out;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+
+            .no-js & {
+                transform: none;
+                visibility: visible;
+                position: relative;
+                width: 100%;
+                height: auto;
+                top: initial;
+                background-color: transparent;
+                text-align: center;
+                overflow: hidden;
+            }
+        }
+
+        @media (min-width: 46em) {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+
+        > li {
+
+            > a {
+                text-decoration: none;
+                @include color(text);
+                @include size(14);
+                @include weight(medium);
+                position: relative;
+                transition: color .3s ease;
+
+                @media (max-width: 735px) {
+                    @include size(20);
+                    display: inline-block;
+                    padding: .5rem 0;
+
+                    .no-js & {
+                        @include size(16);
+                        padding: .25rem;
+                    }
+                }
+
+                @media (min-width: 64em) {
+                    @include size(16);
+                }
+
+                @media (min-width: 75em) {
+                    @include size(18);
+                }
+
+                @media (min-width: 46em) {
+
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 100%;
+                        height: 3px;
+                        position: absolute;
+                        bottom: -5px;
+                        left: 0;
+                        transform: scale(0);
+                        transform-origin: 50% 50%;
+                        transition: background-color .3s ease, transform .3s ease;
+                    }
+                }
+
+                &.current {
+                    @include color(primary);
+
+                    @media (min-width: 46em) {
+                        
+                        &::after {
+                            @include bg_color(primary);
+                            transform: scale(1);
+                        }
+                    }
+                }
+
+                &.has-label {
+
+                    @media (min-width: 46em) {
+                        margin-right: 1.5rem;
+                    }
+                }
+
+                @media (min-width: 46em) {
+
+                    &:hover {
+                        @include color(primary);
+                        text-decoration: none;
+    
+                        &::after {
+                            @include bg_color(primary);
+                            transform: scale(1);
+                        }
+                    }
+                }
+            }
+
+            &:not(:last-of-type) {
+
+                @media (max-width: 735px) {
+                    margin-bottom: .5rem;
+
+                    .no-js & {
+                        margin-bottom: .5rem;
+                    }
+                }
+
+                @media (min-width: 46em) {
+                    margin-right: .75rem;
+                }
+
+                @media (min-width: 64em) {
+                    margin-right: 1rem;
+                }
+
+                @media (min-width: 75em) {
+                    margin-right: 1.5rem;
+                }
+            }
+        }
+    }
+
+    .nav-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include wh(20, 20);
+        @include bg_color(primary);
+        @include color(body);
+        @include size(10);
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(120%, -40%);
+    }
+
+    &.open {
+
+        > ul {
+
+            @media (max-width: 735px) {
+                transform: translateX(0);
+                visibility: visible;
+            }
+        }
+    }
+}

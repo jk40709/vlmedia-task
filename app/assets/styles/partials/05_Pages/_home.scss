@@ -1,0 +1,11 @@
+.home-search,
+.home-news,
+.page-content {
+    position: relative;
+    z-index: 1;
+}
+
+.home-posts {
+    position: relative;
+    z-index: 2;
+}

@@ -1,0 +1,99 @@
+a {
+    &:not(.button) {
+        @include color(primary);
+        text-decoration: none;
+        transition: .2s ease-in;
+
+        @media (min-width: 64em) {
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &:active {
+            @include color(text);
+        }
+    }
+}
+
+#toggle-nav {
+    display: block;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    @include wh(30, 25);
+    padding: 0;
+    margin: 0;
+    position: relative;
+
+    > .hamburger {
+        display: block;
+        @include wh(30, 3);
+        @include bg_color(text);
+
+        &::before {
+            content: '';
+            display: block;
+            @include wh(30, 3);
+            @include bg_color(text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: 50% 50%;
+            transition: transform .3s ease-in;
+        }
+
+        &::after {
+            @extend .hamburger::before;
+            top: initial;
+            bottom: 0;
+        }
+    }
+
+    &.active {
+
+        .hamburger {
+
+            &::before {
+                transform: translateY(11px);
+            }
+    
+            &::after {
+                transform: translateY(-11px);
+            }
+        }
+    }
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.button_search {
+    display: block;
+    @include wh(25, 25);
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    .icon_search {
+        @include icon(search, 25, 25);
+        transition: transform .2s ease-out;
+        transform-origin: 50% 50%;
+
+        @media (min-width: 64em) {
+            @include wh(32, 32);
+        }
+    }
+
+    &:hover {
+
+        .icon_search {
+            transform: scale(.875);
+        }
+    }
+}

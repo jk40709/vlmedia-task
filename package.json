@@ -1,0 +1,36 @@
+{
+  "name": "vltavalabe-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jakub Kinter",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-changed": "^3.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-copy": "^1.1.0",
+    "gulp-image-resize": "^0.13.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-pleeease": "^2.0.2",
+    "gulp-rename": "^1.3.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-strip-comments": "^2.5.2",
+    "gulp-svgo": "^1.5.4",
+    "gulp-tinypng": "^1.0.2",
+    "gulp-uglify": "^3.0.0",
+    "install": "^0.12.1",
+    "jshint": "^2.9.5",
+    "jshint-stylish": "^2.2.1",
+    "npm": "^6.2.0",
+    "require-dir": "^1.0.0"
+  }
+}

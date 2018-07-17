@@ -1,0 +1,39 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  min-width: 320px;
+  padding: 0;
+}
+
+body {
+  @include family(default);
+  font-size: #{$default_font_size}px;
+  @include bg_color(body);
+  @include color(text);
+  position: relative;
+  overflow-x: hidden;
+
+  &.overflow-hidden {
+    
+    @media (max-width: 735px) {
+      @include wh(100, 100, %);
+      overflow: hidden;
+      position: fixed;
+    }
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

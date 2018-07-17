@@ -1,0 +1,48 @@
+.post {
+    @include clearfix;
+
+    .post__header {
+        margin-bottom: 1.5rem;
+
+        @media (min-width: 75em) {
+            margin-bottom: 2.5rem;
+        }
+
+        .post__heading {
+            margin: 0;
+        }
+    }
+
+    .post__thumbnail {
+        max-width: 330px;
+        padding: 0;
+        margin: 0;
+        
+        @media (min-width: 38em) {
+            float: left;
+            margin: 0 2rem 1rem 0;
+        }
+
+        figcaption {
+            padding-top: .25rem;
+            @include size(12);
+            
+            @media (min-width: 38em) {
+                text-align: right;
+            }
+        }
+    }
+
+    .text-columns {
+        columns: 2 320px;
+        column-gap: 2rem;
+
+        @media (min-width: 64em) {
+            column-gap: 3rem;
+        }
+
+        @media (min-width: 75em) {
+            column-gap: 4rem;
+        }
+    }
+}

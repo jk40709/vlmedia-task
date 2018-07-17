@@ -1,0 +1,93 @@
+/* ---------------------------------
+  Variables
+---------------------------------- */
+
+// Zakladni
+$white: #fff;
+$black: #000;
+
+// Brand
+$curious_blue: #168DCC;
+
+// Text
+$rich_black: #00120B;
+
+// Pozadi
+
+// Sede
+$concrete: #f2f2f2;
+$boulder: #7d7d7d;
+$tundora: #464646;
+$silver_chalice: #9E9E9E;
+
+// Utility
+$green: #4CAF50;
+$blue: #2196F3;
+$red: #F44336;
+$orange: #FF9800;
+
+// Odstiny
+
+// Dalsi
+$black_shadow: rgba($black, .75);
+$curious_blue_25: rgba($curious_blue, .55);
+$curious_blue_35: rgba($curious_blue, .65);
+$curious_blue_45: rgba($curious_blue, .85);
+
+
+/* ---------------------------------
+  Maps
+---------------------------------- */
+
+$colors: (
+  primary: $curious_blue,
+  text: $rich_black,
+  text_faded: $silver_chalice,
+  body: $concrete,
+  content_bg: $concrete,
+  tooltip_bg: $tundora,
+  entry_overlay_light: $curious_blue_25,
+  entry_overlay_medium: $curious_blue_35,
+  entry_overlay_dark: $curious_blue_45,
+  shadow: $black_shadow,
+  black: $black,
+  wh: $white
+);
+
+
+/* ---------------------------------
+  Functions
+---------------------------------- */
+
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+
+  @warn '`#{$key}` neni v $colors.';
+  @return null;
+}
+
+
+/* ---------------------------------
+  Mixins
+---------------------------------- */
+
+@mixin color($value) {
+  color: color(#{$value});
+}
+
+@mixin bg_color($value) {
+  background-color: color(#{$value});
+}
+
+
+/* ---------------------------------
+  Styly
+---------------------------------- */
+
+
+// Background Colors
+
+
+// Text Colors

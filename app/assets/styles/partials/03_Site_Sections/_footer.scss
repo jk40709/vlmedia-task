@@ -1,0 +1,47 @@
+.site-footer {
+    padding: 1rem 0;
+    @include bg_color(wh);
+
+    @media (min-width: 64em) {
+        padding: 2rem 0;
+    }
+
+    .site-footer__inner {
+        @include container;
+        text-align: center;
+
+        .copyright {
+            @include size(14);
+            display: block;
+
+            @media (min-width: 64em) {
+                @include size(16);
+            }
+
+            > span {
+                display: block;
+                line-height: 1.5;
+            }
+            
+            .copyright__title {
+                @include size(12);
+                @include color(primary);
+                @include weight(bold);
+                text-transform: uppercase;
+
+                @media (min-width: 64em) {
+                    @include size(14);
+                }
+            }
+
+            .copyright__company {
+                @include weight(bold);
+                text-transform: uppercase;
+            }
+
+            .copyright__disclaimer {
+                margin-top: .5rem;
+            }
+        }
+    }
+}
